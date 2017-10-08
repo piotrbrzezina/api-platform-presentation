@@ -1,0 +1,43 @@
+version: '3.1'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/app/Dockerfile
+    depends_on:
+      - db
+    environment:
+      # Change to prod in production
+      - SYMFONY_ENV=dev
+    volumes:
+      - ./:/srv/app:rw
+      - ./web:/srv/app/web:rw
+      - /srv/app/var/
+      - /srv/app/var/cache/
+      - /srv/app/var/logs/
+      - /srv/app/var/sessions/
+#      - /srv/app/vendor/
+  db:
+    image: sameersbn/postgresql:9.6-2
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    environment:
+      DB_USER: 'api'
+      DB_PASS: 'api'
+      DB_NAME: 'api'
+     
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./web:/srv/app/web:ro
+    ports:
+      - "8000:80"
+
+
+

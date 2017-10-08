@@ -1,0 +1,40 @@
+AppBundle\Entity\User:
+    admin:
+        name: admin
+        surname: surname
+        email: admin@tsh.pl
+    user_{1..20}:
+        name: user_<current()>
+        surname: surname_<current()>
+        email: user<current()>\@tsh.pl
+
+AppBundle\Entity\Equipment:
+    equipment_computer_{1..20}:
+        name: computer
+        user: '@user_<current()>'
+    equipment_phone{5..15}:
+        name: phone
+        user: '@user_<current()>'
+    equipment_phone_admin:
+        name: phone
+        user: '@admin'
+    equipment_care_admin:
+        name: car
+        user: '@admin'
+    equipment_care_user_1:
+        name: car
+        user: '@user_1'
+
+AppBundle\Entity\Project:
+    project_{1..20}:
+        number: <current()>
+        name: project <current()>
+        budget: 1000
+        status: new
+        users: [ '@user_1', '@user_2', '@user_3', '@user_4', '@user_5']
+    project_{21..40}:
+        number: <current()>
+        name: project <current()>
+        budget: 2000
+        status: new
+        users: [ '@user_5', '@user_6', '@user_7', '@user_8', '@user_9']
