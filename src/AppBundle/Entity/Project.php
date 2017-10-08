@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
@@ -37,6 +38,8 @@ class Project
      * @ORM\Column(type="string", length=100)
      *
      * @Groups({"project_read"})
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $number;
 
@@ -45,6 +48,8 @@ class Project
      * @ORM\Column(type="string", length=100)
      *
      * @Groups({"project_write", "project_read"})
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $name;
 
@@ -53,6 +58,8 @@ class Project
      * @ORM\Column(type="decimal", precision=10, scale=2)
      *
      * @Groups({"project_write", "project_read"})
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $budget;
 
@@ -69,6 +76,8 @@ class Project
      * @ORM\Column(type="string", length=100)
      *
      * @Groups({"project_read"})
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $status;
 
