@@ -36,7 +36,7 @@ class Project
      * @var string
      * @ORM\Column(type="string", length=100)
      *
-     * @Groups({"project_write", "project_read"})
+     * @Groups({"project_read"})
      */
     private $number;
 
