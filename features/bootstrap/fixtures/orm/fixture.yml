@@ -38,3 +38,9 @@ AppBundle\Entity\Project:
         budget: 2000
         status: new
         users: [ '@user_5', '@user_6', '@user_7', '@user_8', '@user_9']
+    project_{41..60}:
+        number: <current()>
+        name: project <current()>
+        budget: 3000
+        status: new
+        users: [ '@user_10', '@user_11', '@user_12', '@user_13', '@user_14']

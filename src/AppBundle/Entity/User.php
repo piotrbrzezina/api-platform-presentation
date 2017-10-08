@@ -2,11 +2,13 @@
 
 namespace AppBundle\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 
 
 /**
+ * @ApiResource()
  * @ORM\Table(name="app_user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */

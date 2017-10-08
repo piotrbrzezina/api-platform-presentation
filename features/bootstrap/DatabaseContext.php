@@ -67,6 +67,7 @@ class DatabaseContext implements Context, KernelAwareContext
         $this->persistObjects($fileinfos, $loader);
 
         $this->manager->flush();
+        $this->manager->clear();
     }
 
     private function persistObjects(\Traversable $fileinfos, NativeLoader $loader)
