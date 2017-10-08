@@ -1,0 +1,5 @@
+services:
+    project.order_filter:
+        parent: 'api_platform.doctrine.orm.order_filter'
+        arguments: [ { id: ~, name: ~ , number: ~, budget: ~} ]
+        tags: [ 'api_platform.filter' ]

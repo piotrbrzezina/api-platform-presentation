@@ -6,7 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={
+ *          "filters"={
+ *              "project.order_filter"
+ *          }
+ *     }
+ * )
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
  */
